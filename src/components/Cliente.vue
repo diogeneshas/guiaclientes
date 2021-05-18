@@ -7,6 +7,7 @@
         <p>Email: {{email}}</p>
         <p v-if="showIdade === true">Idade: {{idade}}</p>
         <p v-else>O usuario escondeu a idade!</p>
+        <button v-on:click="mudarCor">Mudar cor!</button>
     </div>
 </template>
 
@@ -25,6 +26,11 @@ export default {
         nome: String,
         idade: Number,
         showIdade: Boolean
+    },
+    methods: {
+        mudarCor() {
+            this.isPremium = !this.isPremium
+        }
     }
 }
 </script>
