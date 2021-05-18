@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <h1>Guia Clientes</h1>
-    <Cliente v-bind:nome="nomeDoDiogenes" />
-    <Cliente nome="henrique" idade='16'/>
-    <cliente v-bind:cliente="clienteHenrique" />
+    <Cliente v-bind:nome="nomeDoDiogenes" idade="36" v-bind:showIdade="true" />
+    <Cliente nome="henrique" idade='16' v-bind:showIdade="false"/>
+    <Cliente nome="almeida" idade='37' v-bind:showIdade="true"/>
   </div>
 </template>
 
@@ -15,11 +15,7 @@ export default {
   name: 'App',
   data() {
     return{
-      nomeDoDiogenes: "Diogenes henrique de Almeida Silva",
-      clienteHenrique: {
-        nome: 'henrique',
-        idade: '16'
-      }
+      nomeDoDiogenes: "Diogenes henrique de Almeida Silva"
     }
   },
   components: {
