@@ -1,5 +1,5 @@
 <template>
-    <div id="cliente">
+    <div v-bind:class="{'cliente': !isPremium, 'cliente-premium': isPremium}">
         <h4>Nome: {{nome}}</h4>
         <hr>
         <p>{{descricao}}</p>
@@ -17,7 +17,8 @@ export default {
         return{
             numero: '2323',
             email: 'diogenes@gmail.com',
-            descricao: 'Lorem ipsum Lorem ipsum'
+            descricao: 'Lorem ipsum Lorem ipsum',
+            isPremium: false
         }
     },
     props: {
@@ -30,8 +31,16 @@ export default {
 
 
 <style scoped>
-    #cliente {
+    .cliente {
         background-color: #ECE5E3;
+        max-width: 600px;
+        height: 230px;
+        padding: 1%;
+        margin-bottom: 10px;
+    }
+    .cliente-premium {
+        background-color: black;
+        color: yellow;
         max-width: 600px;
         height: 230px;
         padding: 1%;
