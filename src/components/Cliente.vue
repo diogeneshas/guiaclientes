@@ -1,10 +1,11 @@
 <template>
     <div id="cliente">
-        <input type="text" v-model="nome">
+        <h4>Nome: {{nome}}</h4>
         <hr>
-        <input type="text" v-bind:value="descricao">
-        <h2 id="cliente-nome">{{nome}}</h2>
-        <p>Descrição do cliente: {{descricao}}</p>
+        <p>{{descricao}}</p>
+        <hr>
+        <p>Email: {{email}}</p>
+        <p>Idade: {{idade}}</p>
     </div>
 </template>
 
@@ -13,12 +14,15 @@
 export default {
     data(){
         return{
-            nome: 'diogenes',
-            numero: '',
-            email: '',
-            idade: 0,
+            numero: '2323',
+            email: 'diogenes@gmail.com',
             descricao: 'Lorem ipsum Lorem ipsum'
         }
+    },
+    props: {
+        nome: String,
+        idade: Number,
+        cliente: Object
     }
 }
 </script>
@@ -26,11 +30,10 @@ export default {
 
 <style scoped>
     #cliente {
-        color: blue;
-        background-color: black;
+        background-color: #ECE5E3;
         max-width: 600px;
-    }
-    #cliente-nome {
-        color: white;
+        height: 230px;
+        padding: 1%;
+        margin-bottom: 10px;
     }
 </style>

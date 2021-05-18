@@ -1,23 +1,29 @@
 <template>
   <div id="app">
     <h1>Guia Clientes</h1>
-    <Cliente/>
-    <hr>
-    <h4>Lista de Produtos</h4>
-    <Produto/>
+    <Cliente v-bind:nome="nomeDoDiogenes" />
+    <Cliente nome="henrique" idade='16'/>
+    <cliente v-bind:cliente="clienteHenrique" />
   </div>
 </template>
 
 <script>
 
 import Cliente from './components/Cliente'
-import Produto from './components/Produto'
 
 export default {
   name: 'App',
+  data() {
+    return{
+      nomeDoDiogenes: "Diogenes henrique de Almeida Silva",
+      clienteHenrique: {
+        nome: 'henrique',
+        idade: '16'
+      }
+    }
+  },
   components: {
-    Cliente,
-    Produto
+    Cliente
   }
 }
 </script>
