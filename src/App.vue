@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h3>Cadastro: </h3>
+    <small id="nomeErro" v-show="deuErro">O nome é invalido, tente novamente!</small><br>
     <input type="text" placeholder="nome" v-model="nomeField"><br>
     <input type="email" placeholder="email" v-model="emailField"><br>
     <input type="number" placeholder="idade" v-model="idadeField"><br>
@@ -49,7 +50,8 @@ export default {
       }],
       nomeField: "",
       emailField: "",
-      idadeField: ""
+      idadeField: "",
+      deuErro: false
     }
   },
   components: {
@@ -57,11 +59,19 @@ export default {
   },
   methods: {
     cadastrarUsuario() {
-      this.clientes.push({nome: this.nomeField, email: this.emailField, idade: this.idadeField, id: Date.now()})
+      if(this.nomeField == '' || this.nomeField == ' ' || this.nomeField.length < 3) {
+        this.deuErro = true;
+      } else {
+        this.clientes.push({nome: this.nomeField, email: this.emailField, idade: this.idadeField, id: Date.now()})
+        this.deuErro = false;
+      }
     }
   }
 }
 </script>
 
 <style>
+  #nomeErro {
+    color: red;
+  }
 </style>
