@@ -1,5 +1,8 @@
 <template>
     <div id="cliente">
+        <input type="text" v-bind:value="nome">
+        <hr>
+        <input type="text" v-bind:value="descricao">
         <h2 id="cliente-nome">{{nome}}</h2>
         <p>Descrição do cliente: {{descricao}}</p>
     </div>
