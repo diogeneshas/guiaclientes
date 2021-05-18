@@ -1,5 +1,14 @@
 <template>
   <div id="app">
+    <h3>Cadastro: </h3>
+    <input type="text" placeholder="nome" v-model="nomeField"><br>
+    <input type="email" placeholder="email" v-model="emailField"><br>
+    <input type="number" placeholder="idade" v-model="idadeField"><br>
+    <button v-on:click="cadastrarUsuario">Cadastrar</button>
+    <hr>
+
+
+
     <h1>Guia Clientes</h1>
     <Cliente v-bind:nome="nomeDoDiogenes" idade="36" v-bind:showIdade="true" />
     <Cliente nome="henrique" idade='16' v-bind:showIdade="false"/>
@@ -37,11 +46,19 @@ export default {
         nome: 'almeida',
         email: 'almeida@gmail.com',
         idade: 37
-      }]
+      }],
+      nomeField: "",
+      emailField: "",
+      idadeField: ""
     }
   },
   components: {
     Cliente
+  },
+  methods: {
+    cadastrarUsuario() {
+      this.clientes.push({nome: this.nomeField, email: this.emailField, idade: this.idadeField, id: Date.now()})
+    }
   }
 }
 </script>
