@@ -12,7 +12,7 @@
 
     <h1>Guia Clientes</h1>
     <Cliente v-bind:nome="nomeDoDiogenes" idade="36" v-bind:showIdade="true" />
-    <Cliente nome="henrique" idade='16' v-bind:showIdade="false"/>
+    <Cliente nome="henrique" idade='16' v-bind:showIdade="false" @meDelete="deletarUsuario"/>
     <Cliente nome="almeida" idade='37' v-bind:showIdade="true"/>
     <div v-for="(cliente,index) in clientes" v-bind:key="cliente.id">
       <p>{{index}}</p>
@@ -65,6 +65,9 @@ export default {
         this.clientes.push({nome: this.nomeField, email: this.emailField, idade: this.idadeField, id: Date.now()})
         this.deuErro = false;
       }
+    },
+    deletarUsuario() {
+      console.log('Recebendo evento')
     }
   }
 }

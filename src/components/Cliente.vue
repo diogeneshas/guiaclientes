@@ -4,10 +4,11 @@
         <hr>
         <p>{{descricao}}</p>
         <hr>
-        <p>Email: {{email}}</p>
+        <p>Email: {{email | processarEmail}}</p>
         <p v-if="showIdade === true">Idade: {{idade}}</p>
         <p v-else>O usuario escondeu a idade!</p>
         <button v-on:click="mudarCor">Mudar cor!</button>
+        <button v-on:click="emitirEventoDelete">Deletar</button>
     </div>
 </template>
 
@@ -30,6 +31,15 @@ export default {
     methods: {
         mudarCor() {
             this.isPremium = !this.isPremium
+        },
+        emitirEventoDelete() {
+            console.log('Emitindo do filho!')
+            this.$emit('meDelete')
+        }
+    },
+    filters: {
+        processarEmail(value) {
+            return value.toUpperCase()
         }
     }
 }
