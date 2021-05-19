@@ -8,7 +8,7 @@
         <p v-if="showIdade === true">Idade: {{idade}}</p>
         <p v-else>O usuario escondeu a idade!</p>
         <button v-on:click="mudarCor">Mudar cor!</button>
-        <button v-on:click="emitirEventoDelete">Deletar</button>
+        <button v-on:click="emitirEventoDelete" class="button is-danger is-rounded">Deletar</button>
         <p>{{idEspecial}}</p>
     </div>
 </template>
