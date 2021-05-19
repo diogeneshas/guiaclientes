@@ -14,7 +14,7 @@
     <Cliente v-bind:nome="nomeDoDiogenes" idade="36" v-bind:showIdade="true" />
     <Cliente nome="henrique" idade='16' v-bind:showIdade="false" @meDelete="deletarUsuario"/>
     <Cliente nome="almeida" idade='37' v-bind:showIdade="true"/>
-    <div v-for="(cliente,index) in clientes" v-bind:key="cliente.id">
+    <div v-for="(cliente,index) in orderClientes" v-bind:key="cliente.id">
       <p>{{index}}</p>
       {{cliente}}
     </div>
@@ -23,6 +23,7 @@
 
 <script>
 
+import _ from 'lodash'
 import Cliente from './components/Cliente'
 
 export default {
@@ -68,6 +69,11 @@ export default {
     },
     deletarUsuario() {
       console.log('Recebendo evento')
+    }
+  },
+  computed: {
+    orderClientes() {
+      return _.orderBy(this.clientes,['nome'],['asc'])
     }
   }
 }
